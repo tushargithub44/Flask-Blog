@@ -2,10 +2,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hello, {{ user.username }}!</h1>
+    <h1>Hello, {{ current_user.username }}!</h1>
     {% for post in posts %}
     <div><p>Author : {{ post.Author.username }}  <br>
-        <b> Caption : {{ post.Caption }}</b></p></div>
+        <b> Caption : {{ post.caption }}</b></p></div>
     {% endfor %}
 {% endblock %}
 
