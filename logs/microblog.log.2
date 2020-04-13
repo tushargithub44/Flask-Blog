@@ -1,0 +1,96 @@
+2020-04-13 04:09:51,513 ERROR: Exception on /edit_profile [POST] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+Traceback (most recent call last):
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 1247, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\default.py", line 588, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\routes.py", line 91, in edit_profile
+    db.session.commit()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
+    self.transaction.commit()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 503, in commit
+    self._prepare_impl()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 482, in _prepare_impl
+    self.session.flush()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 2496, in flush
+    self._flush(objects)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 2637, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
+    raise exception
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 2597, in _flush
+    flush_context.execute()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\persistence.py", line 230, in save_obj
+    _emit_update_statements(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\persistence.py", line 994, in _emit_update_statements
+    c = cached_connections[connection].execute(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 984, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\sql\elements.py", line 293, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 1097, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 1287, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
+    raise exception
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 1247, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\default.py", line 588, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
+[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
+[parameters: ('USER2', 'iAM cOOL', 5)]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-04-13 04:11:20,069 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 04:21:59,400 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 04:22:17,853 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 04:22:44,829 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 04:24:17,032 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 04:25:51,293 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 04:26:48,696 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 04:27:07,167 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 04:28:55,340 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 04:31:13,224 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 04:32:24,700 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:27:04,763 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:28:19,415 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:29:11,907 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:30:03,930 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:32:23,667 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:33:10,793 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:34:37,139 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:35:21,485 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:36:31,779 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:37:57,519 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:38:11,494 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+2020-04-13 05:54:31,500 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]

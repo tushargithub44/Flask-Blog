@@ -1,13 +1,10 @@
-2020-04-13 03:55:43,481 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-13 04:03:57,165 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-13 04:06:50,609 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-13 04:06:55,933 ERROR: Exception on /edit_profile [POST] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+2020-04-13 05:55:17,676 ERROR: Exception on /user/USER2 [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 1247, in _execute_context
     self.dialect.do_execute(
   File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\default.py", line 588, in do_execute
     cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+sqlite3.OperationalError: no such table: followers
 
 The above exception was the direct cause of the following exception:
 
@@ -26,34 +23,38 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\routes.py", line 91, in edit_profile
-    db.session.commit()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
-    self.transaction.commit()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 503, in commit
-    self._prepare_impl()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 482, in _prepare_impl
-    self.session.flush()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 2496, in flush
-    self._flush(objects)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 2637, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.raise_(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
-    raise exception
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 2597, in _flush
-    flush_context.execute()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 586, in execute
-    persistence.save_obj(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\persistence.py", line 230, in save_obj
-    _emit_update_statements(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\persistence.py", line 994, in _emit_update_statements
-    c = cached_connections[connection].execute(
+  File "C:\Users\Microsoft\Desktop\Microblog\app\routes.py", line 81, in user
+    return render_template('user.html', user=user, posts=posts)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\base.html", line 30, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\user.html", line 12, in block "content"
+    {{ user.followers.count() }} followers,
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\dynamic.py", line 335, in count
+    return self._clone(sess).count()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\query.py", line 3667, in count
+    return self.from_self(col).scalar()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\query.py", line 3391, in scalar
+    ret = self.one()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\query.py", line 3358, in one
+    ret = self.one_or_none()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\query.py", line 3327, in one_or_none
+    ret = list(self)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\query.py", line 3403, in __iter__
+    return self._execute_and_instances(context)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\query.py", line 3428, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
   File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 984, in execute
     return meth(self, multiparams, params)
   File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\sql\elements.py", line 293, in _execute_on_connection
@@ -70,8 +71,10 @@ Traceback (most recent call last):
     self.dialect.do_execute(
   File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\default.py", line 588, in do_execute
     cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
-[parameters: ('USER2', 'iAM cOOL', 5)]
-(Background on this error at: http://sqlalche.me/e/gkpj)
-2020-04-13 04:09:32,396 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: followers
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user, followers 
+WHERE followers.followed_id = ? AND followers.follower_id = user.id) AS anon_1]
+[parameters: (6,)]
+(Background on this error at: http://sqlalche.me/e/e3q8)
