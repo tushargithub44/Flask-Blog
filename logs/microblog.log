@@ -99,3 +99,6 @@ KeyError: 'POST_PER_PAGE'
 2020-04-14 06:59:33,017 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:46]
 2020-04-15 05:27:29,923 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:47]
 2020-04-15 05:31:15,141 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:47]
+2020-04-15 05:52:13,237 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:48]
+2020-04-21 08:03:56,234 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:48]
+2020-04-21 08:17:34,965 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:48]
