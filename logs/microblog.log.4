@@ -1,16 +1,4 @@
-2020-04-13 03:55:43,481 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-13 04:03:57,165 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-13 04:06:50,609 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-13 04:06:55,933 ERROR: Exception on /edit_profile [POST] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
-Traceback (most recent call last):
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 1247, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\default.py", line 588, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
+2020-04-25 13:13:00,290 ERROR: Exception on /index [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -26,52 +14,102 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\routes.py", line 91, in edit_profile
-    db.session.commit()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 1036, in commit
-    self.transaction.commit()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 503, in commit
-    self._prepare_impl()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 482, in _prepare_impl
-    self.session.flush()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 2496, in flush
-    self._flush(objects)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 2637, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.raise_(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
-    raise exception
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\session.py", line 2597, in _flush
-    flush_context.execute()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 586, in execute
-    persistence.save_obj(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\persistence.py", line 230, in save_obj
-    _emit_update_statements(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\orm\persistence.py", line 994, in _emit_update_statements
-    c = cached_connections[connection].execute(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 984, in execute
-    return meth(self, multiparams, params)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\sql\elements.py", line 293, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 1097, in _execute_clauseelement
-    ret = self._execute_context(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 1287, in _execute_context
-    self._handle_dbapi_exception(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _handle_dbapi_exception
-    util.raise_(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
-    raise exception
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\base.py", line 1247, in _execute_context
-    self.dialect.do_execute(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\sqlalchemy\engine\default.py", line 588, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
-[parameters: ('USER2', 'iAM cOOL', 5)]
-(Background on this error at: http://sqlalche.me/e/gkpj)
-2020-04-13 04:09:32,396 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 34, in index
+    return render_template('index.html', title='Home', form=form, posts=posts.items, next_url=next_url, prev_url=prev_url)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 3, in block "doc"
+    <html{% block html_attribs %}{% endblock html_attribs %}>
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 11, in block "html"
+    {%- endblock metas %}
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 13, in block "body"
+    {%- block styles %}
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\base.html", line 48, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\index.html", line 11, in block "app_content"
+    {% include '_post.html' %}
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\_post.html", line 9, in top-level template code
+    <a href="{{ url_for('user', username=post.author.username) }}">
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['username']. Did you mean 'main.user' instead?
+2020-04-25 13:13:28,501 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:70]
+2020-04-25 13:13:32,028 ERROR: Exception on /index [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+Traceback (most recent call last):
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 34, in index
+    return render_template('index.html', title='Home', form=form, posts=posts.items, next_url=next_url, prev_url=prev_url)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 3, in block "doc"
+    <html{% block html_attribs %}{% endblock html_attribs %}>
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 11, in block "html"
+    {%- endblock metas %}
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 13, in block "body"
+    {%- block styles %}
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\base.html", line 48, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\index.html", line 11, in block "app_content"
+    {% include '_post.html' %}
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\_post.html", line 9, in top-level template code
+    <a href="{{ url_for('user', username=post.author.username) }}">
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['username']. Did you mean 'main.user' instead?

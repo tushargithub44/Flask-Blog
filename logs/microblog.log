@@ -1,4 +1,4 @@
-2020-04-14 04:02:00,702 ERROR: Exception on /index [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+2020-04-25 13:21:44,493 ERROR: Exception on /edit_profile [POST] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,12 +14,20 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\routes.py", line 29, in index
-    posts = current_user.folLowed_posts().paginate(page, app.config['POST_PER_PAGE'], False)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'User' object has no attribute 'folLowed_posts'
-2020-04-14 04:02:12,249 ERROR: Exception on /index [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 59, in edit_profile
+    return redirect(url_for('edit_profile'))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'edit_profile'. Did you mean 'main.edit_profile' instead?
+2020-04-25 13:21:55,435 ERROR: Exception on /edit_profile [POST] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -35,13 +43,21 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\routes.py", line 29, in index
-    posts = current_user.folLowed_posts().paginate(page, app.config['POST_PER_PAGE'], False)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'User' object has no attribute 'folLowed_posts'
-2020-04-14 04:02:27,016 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:02:32,021 ERROR: Exception on /index [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 59, in edit_profile
+    return redirect(url_for('edit_profile'))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'edit_profile'. Did you mean 'main.edit_profile' instead?
+2020-04-25 13:23:25,284 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:70]
+2020-04-25 13:23:30,436 ERROR: Exception on /edit_profile [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -57,10 +73,25 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\routes.py", line 29, in index
-    posts = current_user.followed_posts().paginate(page, app.config['POST_PER_PAGE'], False)
-KeyError: 'POST_PER_PAGE'
-2020-04-14 04:02:35,243 ERROR: Exception on /index [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 63, in edit_profile
+    return render_template('main.edit_profile.html', title='Edit Profile', form=form)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\loaders.py", line 117, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: main.edit_profile.html
+2020-04-25 13:23:41,357 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:70]
+2020-04-25 13:24:05,626 ERROR: Exception on /unfollow/USER1 [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -76,29 +107,19 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\routes.py", line 29, in index
-    posts = current_user.followed_posts().paginate(page, app.config['POST_PER_PAGE'], False)
-KeyError: 'POST_PER_PAGE'
-2020-04-14 04:03:12,468 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:09:48,997 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:13:33,198 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:16:38,262 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:18:44,344 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:23:58,717 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:24:37,023 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:30:53,088 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:33:15,562 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:35:26,923 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:44:21,116 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 04:45:47,912 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:45]
-2020-04-14 05:03:04,960 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:46]
-2020-04-14 06:35:50,889 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:46]
-2020-04-14 06:37:27,704 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:46]
-2020-04-14 06:44:27,906 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:46]
-2020-04-14 06:45:47,758 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:46]
-2020-04-14 06:59:33,017 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:46]
-2020-04-15 05:27:29,923 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:47]
-2020-04-15 05:31:15,141 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:47]
-2020-04-15 05:52:13,237 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:48]
-2020-04-21 08:03:56,234 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:48]
-2020-04-21 08:17:34,965 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:48]
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 94, in unfollow
+    return redirect(url_for('main/user', username=username))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main/user' with values ['username']. Did you mean 'main.user' instead?
+2020-04-25 13:25:07,003 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:70]
+2020-04-25 13:48:06,987 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:70]
+2020-04-25 13:48:45,780 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:70]
