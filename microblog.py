@@ -1,5 +1,6 @@
-from app import create_app, db
+from flask import current_app
 from app.models import User, Post
+from app import create_app, db
 
 app = create_app()
 

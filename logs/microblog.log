@@ -1,4 +1,4 @@
-2020-04-25 13:21:44,493 ERROR: Exception on /edit_profile [POST] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+2020-04-30 02:00:11,393 ERROR: Exception on /search [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,20 +14,24 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 59, in edit_profile
-    return redirect(url_for('edit_profile'))
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 357, in url_for
-    rv = url_adapter.build(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'edit_profile'. Did you mean 'main.edit_profile' instead?
-2020-04-25 13:21:55,435 ERROR: Exception on /edit_profile [POST] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 122, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+  File "C:\Users\Microsoft\Desktop\Microblog\app\models.py", line 88, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\search.py", line 23, in query_index
+    search = current_app.elasticsearch.search(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\client\utils.py", line 92, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\client\__init__.py", line 1622, in search
+    return self.transport.perform_request(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\transport.py", line 355, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 248, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\connection\base.py", line 243, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
+2020-04-30 02:04:09,152 ERROR: Exception on /search [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -43,83 +47,20 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 59, in edit_profile
-    return redirect(url_for('edit_profile'))
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 357, in url_for
-    rv = url_adapter.build(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'edit_profile'. Did you mean 'main.edit_profile' instead?
-2020-04-25 13:23:25,284 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:70]
-2020-04-25 13:23:30,436 ERROR: Exception on /edit_profile [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
-Traceback (most recent call last):
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 63, in edit_profile
-    return render_template('main.edit_profile.html', title='Edit Profile', form=form)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 883, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 857, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\loaders.py", line 117, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: main.edit_profile.html
-2020-04-25 13:23:41,357 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:70]
-2020-04-25 13:24:05,626 ERROR: Exception on /unfollow/USER1 [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
-Traceback (most recent call last):
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 94, in unfollow
-    return redirect(url_for('main/user', username=username))
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\helpers.py", line 357, in url_for
-    rv = url_adapter.build(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main/user' with values ['username']. Did you mean 'main.user' instead?
-2020-04-25 13:25:07,003 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:70]
-2020-04-25 13:48:06,987 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:70]
-2020-04-25 13:48:45,780 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:70]
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 122, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+  File "C:\Users\Microsoft\Desktop\Microblog\app\models.py", line 88, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\search.py", line 28, in query_index
+    print('ids are :' + ids)
+TypeError: can only concatenate str (not "list") to str
+2020-04-30 02:04:45,980 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:06:10,912 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:08:19,066 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:12:57,012 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:13:02,285 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:13:07,596 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:13:58,200 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:18:32,617 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:19:00,917 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:20:14,146 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]

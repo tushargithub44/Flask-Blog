@@ -1,10 +1,12 @@
 import os
-from flask import Flask, request, current_app   
+from flask import Flask, request, current_app     
 import logging  
+from elasticsearch import Elasticsearch
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from config import Config
+from flask_babel import Babel
 from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask_mail import Mail
 from flask_moment import Moment
@@ -20,6 +22,7 @@ login.login_message = ('Please log in to access this page.')
 mail = Mail()
 bootstrap = Bootstrap()
 moment = Moment()
+babel = Babel()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -30,6 +33,7 @@ def create_app(config_class=Config):
     login.init_app(app)
     mail.init_app(app)
     bootstrap.init_app(app)
+    babel.init_app(app)
     moment.init_app(app)
 
     from app.errors import bp as errors_bp
@@ -39,6 +43,9 @@ def create_app(config_class=Config):
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(main_bp)
 
+    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']])\
+        if app.config['ELASTICSEARCH_URL'] else None
+ 
     
     if not app.debug and not app.testing:
         if app.config['MAIL_SERVER']:
@@ -69,6 +76,10 @@ def create_app(config_class=Config):
         app.logger.setLevel(logging.INFO)
         app.logger.info('Microblog startup')
     return app
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(current_app.config['LANGUAGES'])
 
 from app import models
 
