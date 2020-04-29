@@ -27,7 +27,7 @@ class UserModelCase(unittest.TestCase):
         self.assertTrue(u.check_password('ram'))
 
     def test_avatar(self):
-        u = User(username = 'ram',email = 'ram@ramayan.com')
+        u = User(username = 'ramu',email = 'ram@ramayan.com')
         self.assertEqual(u.avatar(128),('https://www.gravatar.com/avatar/90ed99879ec18edd1749c11db92d1fbb?d=identicon&s=128'))
 
     def test_follow(self):
