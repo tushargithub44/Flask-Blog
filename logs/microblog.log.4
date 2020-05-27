@@ -1,46 +1,4 @@
-2020-04-27 05:08:02,490 ERROR: Exception on /search [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
-Traceback (most recent call last):
-  File "c:\users\microsoft\microblog\env\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
-    conn = connection.create_connection(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
-    raise err
-  File "c:\users\microsoft\microblog\env\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 228, in perform_request
-    response = self.pool.urlopen(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\urllib3\connectionpool.py", line 724, in urlopen
-    retries = retries.increment(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\urllib3\util\retry.py", line 379, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\urllib3\packages\six.py", line 735, in reraise
-    raise value
-  File "c:\users\microsoft\microblog\env\lib\site-packages\urllib3\connectionpool.py", line 670, in urlopen
-    httplib_response = self._make_request(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "c:\users\microsoft\appdata\local\programs\python\python38-32\lib\http\client.py", line 1230, in request
-    self._send_request(method, url, body, headers, encode_chunked)
-  File "c:\users\microsoft\appdata\local\programs\python\python38-32\lib\http\client.py", line 1276, in _send_request
-    self.endheaders(body, encode_chunked=encode_chunked)
-  File "c:\users\microsoft\appdata\local\programs\python\python38-32\lib\http\client.py", line 1225, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "c:\users\microsoft\appdata\local\programs\python\python38-32\lib\http\client.py", line 1004, in _send_output
-    self.send(msg)
-  File "c:\users\microsoft\appdata\local\programs\python\python38-32\lib\http\client.py", line 944, in send
-    self.connect()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\urllib3\connection.py", line 187, in connect
-    conn = self._new_conn()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\urllib3\connection.py", line 171, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x040DA070>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
-
-During handling of the above exception, another exception occurred:
-
+2020-04-30 02:00:11,393 ERROR: Exception on /search [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -56,42 +14,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 118, in search
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 122, in search
     posts, total = Post.search(g.search_form.q.data, page,
   File "C:\Users\Microsoft\Desktop\Microblog\app\models.py", line 88, in search
     ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\search.py", line 21, in query_index
-    search = current_app.elasticsearch.search(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\client\utils.py", line 92, in _wrapped
-    return func(*args, params=params, headers=headers, **kwargs)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\client\__init__.py", line 1622, in search
-    return self.transport.perform_request(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\transport.py", line 355, in perform_request
-    status, headers_response, data = connection.perform_request(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 241, in perform_request
-    raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x040DA070>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x040DA070>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
-2020-04-27 05:11:37,575 ERROR: Exception on /search [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
-Traceback (most recent call last):
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 118, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-  File "C:\Users\Microsoft\Desktop\Microblog\app\models.py", line 88, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\search.py", line 21, in query_index
+  File "C:\Users\Microsoft\Desktop\Microblog\app\search.py", line 23, in query_index
     search = current_app.elasticsearch.search(
   File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\client\utils.py", line 92, in _wrapped
     return func(*args, params=params, headers=headers, **kwargs)
@@ -104,4 +31,80 @@ Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\connection\base.py", line 243, in _raise_error
     raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
 elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
-2020-04-27 05:12:35,923 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:04:09,152 ERROR: Exception on /search [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+Traceback (most recent call last):
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 122, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+  File "C:\Users\Microsoft\Desktop\Microblog\app\models.py", line 88, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\search.py", line 28, in query_index
+    print('ids are :' + ids)
+TypeError: can only concatenate str (not "list") to str
+2020-04-30 02:04:45,980 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:06:10,912 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:08:19,066 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:12:57,012 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:13:02,285 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:13:07,596 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:13:58,200 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:18:32,617 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:19:00,917 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-04-30 02:20:14,146 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+2020-05-18 01:21:22,299 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-05-18 02:49:22,923 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-05-18 02:51:53,176 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-05-18 03:00:14,189 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-05-18 03:00:29,863 ERROR: Exception on /user/USER1/popup [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+Traceback (most recent call last):
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 139, in user_popup
+    return render_template('user_popup.html', user=user)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\loaders.py", line 129, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\user_popup.html", line 16, in template
+    <p>{{ '%(count)d followers', count=user.followers.count() }},
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
+2020-05-18 03:01:06,285 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-05-28 01:08:48,911 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-05-28 01:16:57,736 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
