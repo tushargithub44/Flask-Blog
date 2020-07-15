@@ -1,0 +1,6 @@
+__pycache__
+logs
+pip-log.txt
+venv
+app.db
+microblog.log*
