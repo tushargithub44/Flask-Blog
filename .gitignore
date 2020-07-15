@@ -1,6 +1,8 @@
 __pycache__
 logs
 pip-log.txt
-venv
+env
 app.db
 microblog.log*
+.idea
+.vscode
