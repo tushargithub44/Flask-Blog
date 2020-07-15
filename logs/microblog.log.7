@@ -1,4 +1,4 @@
-2020-04-27 05:12:43,758 ERROR: Exception on /search [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+2020-05-28 01:20:41,377 ERROR: Exception on /user/USER2/popup [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,26 +14,29 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 118, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-  File "C:\Users\Microsoft\Desktop\Microblog\app\models.py", line 88, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\search.py", line 21, in query_index
-    search = current_app.elasticsearch.search(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\client\utils.py", line 92, in _wrapped
-    return func(*args, params=params, headers=headers, **kwargs)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\client\__init__.py", line 1622, in search
-    return self.transport.perform_request(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\transport.py", line 355, in perform_request
-    status, headers_response, data = connection.perform_request(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 248, in perform_request
-    self._raise_error(response.status, raw_data)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\connection\base.py", line 243, in _raise_error
-    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
-elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
-2020-04-27 05:23:48,158 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
-2020-04-27 05:25:56,994 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
-2020-04-27 05:26:01,788 ERROR: Exception on /search [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 139, in user_popup
+    return render_template('user_popup.html', user=user)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\loaders.py", line 129, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\user_popup.html", line 16, in template
+    <p>{{ '%(count)d followers', count=user.followers.count() }},
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
+2020-05-28 01:21:01,406 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-05-28 01:21:10,220 ERROR: Exception on /user/USER1/popup [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -49,25 +52,35 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 118, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-  File "C:\Users\Microsoft\Desktop\Microblog\app\models.py", line 88, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\search.py", line 22, in query_index
-    search = current_app.elasticsearch.search(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\client\utils.py", line 92, in _wrapped
-    return func(*args, params=params, headers=headers, **kwargs)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\client\__init__.py", line 1622, in search
-    return self.transport.perform_request(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\transport.py", line 355, in perform_request
-    status, headers_response, data = connection.perform_request(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 248, in perform_request
-    self._raise_error(response.status, raw_data)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\connection\base.py", line 243, in _raise_error
-    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
-elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
-2020-04-27 05:28:22,498 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
-2020-04-27 05:28:27,285 ERROR: Exception on /search [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 139, in user_popup
+    return render_template('user_popup.html', user=user)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\loaders.py", line 129, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\user_popup.html", line 16, in template
+    <p>{{ '%(count)d followers', count=user.followers.count() }},
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
+2020-05-28 01:22:57,986 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-05-28 01:52:45,465 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-05-29 16:53:42,927 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-05-29 16:53:56,916 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-06-05 03:35:13,484 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-06-05 03:35:25,374 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-06-05 03:43:27,789 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:82]
+2020-06-05 03:43:44,610 ERROR: Exception on / [GET] [in c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -83,21 +96,29 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\microsoft\microblog\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 119, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-  File "C:\Users\Microsoft\Desktop\Microblog\app\models.py", line 88, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "C:\Users\Microsoft\Desktop\Microblog\app\search.py", line 22, in query_index
-    search = current_app.elasticsearch.search(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\client\utils.py", line 92, in _wrapped
-    return func(*args, params=params, headers=headers, **kwargs)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\client\__init__.py", line 1622, in search
-    return self.transport.perform_request(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\transport.py", line 355, in perform_request
-    status, headers_response, data = connection.perform_request(
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 248, in perform_request
-    self._raise_error(response.status, raw_data)
-  File "c:\users\microsoft\microblog\env\lib\site-packages\elasticsearch\connection\base.py", line 243, in _raise_error
-    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
-elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
-2020-04-27 05:29:18,161 INFO: Microblog startup [in C:\Users\Microsoft\Desktop\Microblog\app\__init__.py:77]
+  File "C:\Users\Microsoft\Desktop\Microblog\app\main\routes.py", line 37, in index
+    return render_template('index.html', title='Home', form=form, posts=posts.items, next_url=next_url, prev_url=prev_url)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\microsoft\microblog\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 3, in block "doc"
+    <html{% block html_attribs %}{% endblock html_attribs %}>
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 11, in block "html"
+    {%- endblock metas %}
+  File "c:\users\microsoft\microblog\env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 12, in block "body"
+  File "C:\Users\Microsoft\Desktop\Microblog\app\templates\base.html", line 40, in block "navbar"
+    {% set new_messages = current_user.new_messages() %}
+jinja2.exceptions.UndefinedError: 'app.models.User object' has no attribute 'new_messages'
