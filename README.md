@@ -1,6 +1,6 @@
 <h1 align = 'center'> Micro blogging website</h1>
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[![](https://img.shields.io/badge/Made_with-Flask-blue?style=for-the-badge&logo=Flask)](https://flask.palletsprojects.com/en/1.1.x/)
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[![](https://img.shields.io/badge/Made_with-Flask-blue?style=for-the-badge&logo=Flask)](https://flask.palletsprojects.com/en/1.1.x/)
 &emsp;[![](https://img.shields.io/badge/IDE-Visual_Studio_Code-red?style=for-the-badge&logo=visual-studio-code)](https://code.visualstudio.com/ "Visual Studio Code")
 
 
@@ -18,23 +18,23 @@ Project Structure
   ├── requirements.txt
   ├── .gitignore
   ├── app
-  |   ├── _init_.py
-  |   ├── email.py
-  |   ├── models.py
-  |   ├── search.py
-  |   ├── auth
+  │   ├── _init_.py
+  │   ├── email.py
+  │   ├── models.py
+  │   ├── search.py
+  │   ├── auth
   │   │   ├── _init_.py
   │   │   ├── email.py
   │   │   ├── forms.py
   │   │   ├── routes.py
-  |   ├── errors
+  │   ├── errors
   │   │   ├── _init_.py
   │   │   ├── handlers.py
-  |   ├── main
+  │   ├── main
   │   │   ├── _init_.py
   │   │   ├── forms.py
   │   │   ├── routes.py
-  |   └── templates
+  │   └── templates
   │       ├── _post.html
   │       ├── base.html
   │       ├── edit_profile.html
@@ -45,13 +45,13 @@ Project Structure
   │       ├── user.html
   │       ├── user_popup.html
   │       ├── auth
-  │       |   ├── login.html
-  │       |   ├── register.html
-  │       |   ├── reset_password.html
-  │       |   ├── reset_password_request.html
+  │       │   ├── login.html
+  │       │   ├── register.html
+  │       │   ├── reset_password.html
+  │       │   ├── reset_password_request.html
   │       ├── email
-  │       |   ├── reset_password.html
-  │       |   ├── reset_password.txt
+  │       │   ├── reset_password.html
+  │       │   ├── reset_password.txt
   │       └── errors
   │           ├── 404.html
   │           ├── 500.html
@@ -60,6 +60,11 @@ Project Structure
 
 ### 📷 Screenshots
 
+![LoginPage](https://github.com/tushargithub44/Flask-Blog/blob/master/Screenshots/Successfuly_Registered.PNG)
+
+![ProfilePage](https://github.com/tushargithub44/Flask-Blog/blob/master/Screenshots/profilepage.PNG)
+
+![ExplorePage](https://github.com/tushargithub44/Flask-Blog/blob/master/Screenshots/explore_section.PNG)
 
 
 
