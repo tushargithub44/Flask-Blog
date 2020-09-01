@@ -5,6 +5,8 @@
 
 
 <h4 align = 'center'> Preview app here - https://social-microblog.herokuapp.com/ </h4>
+<h4 align = 'center'> (Search feature not deployed due to Heroku Constraints but works fine locally.) </h4>
+
 
 Project Structure
 --------
