@@ -8,7 +8,7 @@
 <h4 align = 'center'> (Search feature not deployed due to Heroku Constraints but works fine locally.) </h4>
 
 
-Project Structure
+Project Structure - An amazing blogging website
 --------
 
   ```sh
